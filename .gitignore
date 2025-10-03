@@ -1,3 +1,6 @@
 .build-files
 logs/
 
+
+# Local Netlify folder
+.netlify
