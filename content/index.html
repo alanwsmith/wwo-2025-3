@@ -1,58 +1,8 @@
 [! extends "_wrappers/main.html" !]
 
 [! block main !]
-
-<style>
-[data-part=body] {
-  width: 50px;
-  height: 50px;
-}
-
-[data-part=body][data-option=gaming] {
-  position: absolute;
-  outline: 1px solid red;
-  width: 100px;
-  height: 100px;
-  top: 90px;
-  left: 30px;
-}
-
-[data-part=face] {
-  width: 70px;
-  height: 70px;
-}
-
-[data-part=face][data-option=awe] {
-  position: absolute;
-  outline: 1px solid red;
-  width: 100px;
-  height: 100px;
-  top: 200px;
-  left: 90px;
-}
-
-
-[data-part=head] {
-  width: 70px;
-  height: 70px;
-}
-
-.person-wrapper {
-  position: relative;
-}
-
-.output {
-  position: relative;
-}
-
-[data-receive=peeps] {
-  display: flex;
-  flex-wrap: wrap;
-}
-</style>
-
-<button data-send="scramble|peep">Scramble</button>
 <div data-receive="peeps"></div>
+<button data-send="scramble|peep">Scramble</button>
 
 <div hidden>
   [! include "_wrappers/svgs-body.html" !]

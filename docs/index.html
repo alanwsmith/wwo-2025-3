@@ -1381,8 +1381,45 @@ video {
 .page {
   visibility: var(--page-visibility);
 }
-</style><style>
+</style>
+<style>
+[data-part=body] {
+  position: absolute;
+  top: 36px;
+  left: 10px;
+  width: 70px;
+  height: 70px;
+}
 
+[data-part=face] {
+  position: absolute;
+  top: 13px;
+  left: 44px;
+  width: 30px;
+  height: 30px;
+}
+
+
+[data-receive=peeps] {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+[data-receive=peep] {
+  margin: var(--default-margin);
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+[data-part=head] {
+  position: absolute;
+  top: 0px;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+}
 </style></head>
   <body class="page">
     <bitty-v1-rc5 data-connect="/components/page.js" class="content-wrapper" data-send="peeps">
@@ -1404,58 +1441,8 @@ video {
         </div>
       </header>
       <main class="default-wrapper">
-
-<style>
-[data-part=body] {
-  width: 50px;
-  height: 50px;
-}
-
-[data-part=body][data-option=gaming] {
-  position: absolute;
-  outline: 1px solid red;
-  width: 100px;
-  height: 100px;
-  top: 90px;
-  left: 30px;
-}
-
-[data-part=face] {
-  width: 70px;
-  height: 70px;
-}
-
-[data-part=face][data-option=awe] {
-  position: absolute;
-  outline: 1px solid red;
-  width: 100px;
-  height: 100px;
-  top: 200px;
-  left: 90px;
-}
-
-
-[data-part=head] {
-  width: 70px;
-  height: 70px;
-}
-
-.person-wrapper {
-  position: relative;
-}
-
-.output {
-  position: relative;
-}
-
-[data-receive=peeps] {
-  display: flex;
-  flex-wrap: wrap;
-}
-</style>
-
-<button data-send="scramble|peep">Scramble</button>
 <div data-receive="peeps"></div>
+<button data-send="scramble|peep">Scramble</button>
 
 <div hidden>
 <svg data-option="explaining" data-part="body" height="733px" id="body-explaining" version="1.1" viewBox="0 0 818 733" width="818px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

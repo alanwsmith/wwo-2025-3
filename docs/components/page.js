@@ -1,10 +1,19 @@
 class State {
   constructor() {
-    this.heads = [...document.querySelectorAll("[data-part=head]")];
+    this.bodies = [...document.querySelectorAll("[data-part=body]")].toSpliced(
+      12,
+    );
+    this.faces = [...document.querySelectorAll("[data-part=face]")].toSpliced(
+      12,
+    );
+    this.heads = [...document.querySelectorAll("[data-part=head]")].toSpliced(
+      12,
+    );
   }
 
   scramble() {
     shuffleArray(this.heads);
+    shuffleArray(this.bodies);
   }
 }
 
@@ -29,13 +38,14 @@ export default class {
   }
 
   peep(_event, el) {
-    el.replaceChildren(s.heads[el.dataset.num]);
+    el.replaceChildren(s.bodies[el.dataset.num]);
+    el.appendChild(s.heads[el.dataset.num]);
+    el.appendChild(s.faces[el.dataset.num]);
   }
 
   async peeps(_event, el) {
-    for (let num = 0; num < 10; num += 1) {
+    for (let num = 0; num < 12; num += 1) {
       let peep = document.createElement("div");
-      peep.innerHTML = "asdf";
       peep.dataset.num = num;
       peep.dataset.receive = "peep";
       await el.appendChild(peep);
