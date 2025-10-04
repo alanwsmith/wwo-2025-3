@@ -1,5 +1,49 @@
+class State {
+  constructor() {
+    this.heads = [...document.querySelectorAll("[data-part=head]")];
+  }
+
+  scramble() {
+    shuffleArray(this.heads);
+  }
+}
+
+function shuffleArray(array) {
+  let currentIndex = array.length;
+  let randomIndex;
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+}
+
+const s = new State();
+
 export default class {
   bittyInit() {
     document.documentElement.style.setProperty("--page-visibility", "visible");
+  }
+
+  peep(_event, el) {
+    el.replaceChildren(s.heads[el.dataset.num]);
+  }
+
+  async peeps(_event, el) {
+    for (let num = 0; num < 10; num += 1) {
+      let peep = document.createElement("div");
+      peep.innerHTML = "asdf";
+      peep.dataset.num = num;
+      peep.dataset.receive = "peep";
+      await el.appendChild(peep);
+    }
+    this.api.forward(null, "peep");
+  }
+
+  scramble(_event, el) {
+    s.scramble();
   }
 }

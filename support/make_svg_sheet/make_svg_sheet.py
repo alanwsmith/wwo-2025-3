@@ -5,16 +5,14 @@ from bs4 import BeautifulSoup
 
 class Maker():
 
-    def output_page(self):
-        with open("../../content/_wrappers/svgs.html", "w") as _out:
-            _out.write(self.page())
-
-    def page(self):
-        output = []
+    def output_pages(self):
         sections = ["body", "face", "head"]
         for section in sections:
-            output.append(self.section_content(section))
-        return "\n".join(output)
+            parts = []
+            parts.append(self.section_content(section))
+            output = "\n".join(parts)
+            with open(f"../../content/_wrappers/svgs-{section}.html", "w") as _out:
+                _out.write(output)
 
     def section_content(self, section):
         output = []
@@ -43,6 +41,5 @@ if __name__ == "__main__":
     # print(m.section_content("body"))
     # print(m.prep_content("svgs/face/awe.svg"))
     # print(m.page())
-
-    m.output_page()
+    m.output_pages()
 
