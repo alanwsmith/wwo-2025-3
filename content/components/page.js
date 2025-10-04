@@ -11,9 +11,12 @@ class State {
     );
   }
 
-  scramble() {
-    shuffleArray(this.heads);
+  scrambleBody() {
     shuffleArray(this.bodies);
+  }
+
+  scrambleHead() {
+    shuffleArray(this.heads);
   }
 }
 
@@ -53,7 +56,11 @@ export default class {
     this.api.forward(null, "peep");
   }
 
-  scramble(_event, el) {
-    s.scramble();
+  scrambleBody(_event, el) {
+    s.scrambleBody();
+  }
+
+  scrambleHead(_event, el) {
+    s.scrambleHead();
   }
 }
