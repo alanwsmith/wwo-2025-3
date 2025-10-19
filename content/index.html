@@ -1,25 +1,22 @@
-[! extends "_wrappers/main.html" !]
+[! extends "_wrappers/wrapper.html" !]
 
 [! block main !]
-<div data-receive="peeps"></div>
-<button data-send="scrambleBody|peep">Scramble Bodies</button>
-<button data-send="scrambleHead|peep">Scramble Heads</button>
-
-<div>
-  Characters from <a href="https://www.openpeeps.com/">Open Peeps</a>.
+<div class="project-wrapper">
+[! include "_includes/main.html" !]
 </div>
 
-<div>
-If you're into code, you should checkout <a href="https://github.com/alanwsmith/wwo-2025-3/blob/main/content/components/page.js">
-    the javascript behind this</a>. I'm using <a href="https://bitty.alanwsmith.com/">bitty</a> which does
-  most of the wiring. All the interaction is done with 66 lines of code.
-</div>
+<h3>Details</h3>
+[! include "_includes/description.html" !]
 
-<div hidden>
-  [! include "_wrappers/svgs-body.html" !]
-  [! include "_wrappers/svgs-head.html" !]
-  [! include "_wrappers/svgs-face.html" !]
-</div>
+<h3>The HTML</h3>
+<pre class="code-block"><code>[@- highlight_file("_includes/main.html")|safe -@]</code></pre>
+
+<h3>The JavaScript</h3>
+<pre class="code-block"><code>[@- highlight_file("_includes/script.js")|safe -@]</code></pre>
+
+<h3>The CSS</h3>
+<pre class="code-block"><code>[@- highlight_file("_includes/styles.css")|safe -@]</code></pre>
 
 [! endblock !]
+
 
